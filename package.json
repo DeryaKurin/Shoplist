@@ -1,0 +1,27 @@
+{
+  "name": "shoplist",
+  "version": "1.0.0",
+  "description": "A shopping list sharing app with realtime database",
+  "main": "index.js",
+  "scripts": {
+    "test": "export NODE_ENV=test&& jasmine",
+    "start": "node src/server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DeryaKurin/Shoplist.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DeryaKurin/Shoplist/issues"
+  },
+  "homepage": "https://github.com/DeryaKurin/Shoplist#readme",
+  "devDependencies": {
+    "jasmine": "^3.0.0",
+    "request": "^2.83.0"
+  },
+  "dependencies": {
+    "express": "^4.16.2"
+  }
+}

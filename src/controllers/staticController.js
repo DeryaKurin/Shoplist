@@ -1,5 +1,5 @@
 module.exports = {
   index(req, res, next){
-    res.send("Welcome to Shoplist");
+    res.render("static/index", {title: "Welcome to Shoplist"});
   }
 }

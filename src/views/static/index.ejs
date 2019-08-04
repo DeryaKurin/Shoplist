@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <% include ./partials/head.ejs %>
+  </head>
+  <body>
+
+      <!-- Navigation -->
+      <% include ./partials/navbar.ejs %>
+
+      <!-- Page Content -->
+      <main class="container">
+
+        <!-- Jumbotron Header -->
+        <header class="jumbotron my-4">
+          <h1 class="display-3">Welcome to Shoplist</h1>
+          <p class="lead">An application for users to share their shopping list with others simultaniously.</p>
+          <a href="#" class="btn btn-primary btn-lg">Sign up</a>
+        </header>
+
+        <!-- Page Features -->
+        <section class="row text-center">
+
+          <section class="col-lg-4">
+            <h4 class="card-title">Create your own list!</h4>
+            <p class="card-text">You may create shopping lists and share them with your family and friends!</p>
+          </section>
+
+          <section class="col-lg-4">
+            <h4 class="card-title">Add items to your list!</h4>
+            <p class="card-text">People with access to your shopping list can add delete edit items!</p>
+          </section>
+
+          <section class="col-lg-4">
+            <h4 class="card-title">Mark items as purchased!</h4>
+            <p class="card-text">Start marking items as purchased while doing your shopping! Mark it as unpurchased if not bought yet!</p>
+          </section>
+
+        </section>
+        <!-- /.row -->
+
+      </main>
+      <!-- /.container -->
+      <% include ./partials/baseScripts.ejs %>
+
+    </body>
+</html>

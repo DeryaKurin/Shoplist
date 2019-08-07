@@ -4,7 +4,7 @@ const viewsFolder = path.join(__dirname, "..", "views");
 const passportConfig = require("./passport-config");
 const bodyParser = require("body-parser");
 const expressValidator = require("express-validator");
-const cookieParser = = require('cookie-parser');
+const cookieParser = require('cookie-parser');
 const session = require("express-session");
 const flash = require("express-flash");
 

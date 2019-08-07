@@ -4,9 +4,10 @@ const viewsFolder = path.join(__dirname, "..", "views");
 const passportConfig = require("./passport-config");
 const bodyParser = require("body-parser");
 const expressValidator = require("express-validator");
-const cookieParser = require('cookie-parser');
+// const cookieParser = require('cookie-parser');
 const session = require("express-session");
 const flash = require("express-flash");
+const logger = require("morgan");
 
 
 
@@ -17,7 +18,7 @@ module.exports = {
      app.use(express.static(path.join(__dirname, "..", "assets")));     app.use(bodyParser.urlencoded({ extended: true }));
      app.use(bodyParser.urlencoded({ extended: true }));
      app.use(expressValidator());
-     app.use(express.cookieParser());
+     // app.use(express.cookieParser());
      app.use(session({
        secret: process.env.cookieSecret,
        resave: false,
@@ -25,10 +26,12 @@ module.exports = {
        cookie: { maxAge: 1.21e+9 }
      }));
      app.use(flash());
+     app.use(logger('dev'));
      passportConfig.init(app);
      app.use((req,res,next) => {
-          res.locals.currentUser = req.user;
-          next();
+       console.log("SETTING CURRENT USER : ", req.url);
+       res.locals.currentUser = req.user;
+       next();
      });
   }
 };

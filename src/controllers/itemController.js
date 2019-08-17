@@ -39,5 +39,18 @@ module.exports = {
         res.redirect(303, `/lists/${req.params.listId}`);
       }
     });
+  },
+
+  togglePurchase(req, res, next) {
+    itemQueries.toggle(req, (err, item) => {
+      if(err || item == undefined) {
+        console.log(err);
+        req.flash('notice', 'No item found with that ID.');
+        res.redirect(500, `/lists/${req.params.listId}`);
+      } else {
+        console.log("LOOK HERE: WE TOGGLED PURCHASE");
+        res.redirect(303, `/lists/${req.params.listId}`);
+      }
+    });
   }
 }

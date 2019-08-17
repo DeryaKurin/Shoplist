@@ -8,6 +8,7 @@
 
     <main class="container">
       <% include ../static/partials/messages.ejs %>
+      <br>
 
       <h4><%= list.name %></h4>
 
@@ -18,23 +19,38 @@
          <% list.items.forEach((item) => { %>
            <li class="list-group-item">
              <a href="/lists/<%= item.listId %>/items/<%= item.id %>"> <%= item.name %> </a>
-             <form action="/lists/<%= item.listId %>/items/<%= item.id %>/update" method="post">
-               <div class="form-group">
-                 <input value="<%= item.name %>" type="text" class="form-control" name="name" aria-describedby="nameHelp" placeholder="Enter Item">
-                 <small class="text-muted" id="nameHelp">name must be 2 or more characters in length.</small>
-               </div>
-               <button type="submit" class="btn btn-primary">Edit</button>
-             </form>
-             <form style="display:initial" action="/lists/<%= item.listId %>/items/<%= item.id %>/destroy" method="post">
-               <button type="submit" class="btn btn-danger">Delete</button>
-             </form>
+             <div class="formGroup">
+               <form action="/lists/<%= item.listId %>/items/<%= item.id %>/update" method="post">
+                 <div class="form-inline">
+                   <div id="space" class="form-group mb-2">
+                     <input value="<%= item.name %>" type="text" class="form-control" name="name" aria-describedby="nameHelp" placeholder="Enter Item">
+                   </div>
+                   <div class="form-group mb-2">
+                    <button type="submit" class="btn btn-success">Edit</button>
+                   </div>
+                 </div>
+               </form>
+               <form style="display:initial" action="/lists/<%= item.listId %>/items/<%= item.id %>/destroy" method="post">
+                 <button type="submit" class="btn btn-danger">Delete</button>
+               </form>
+
+               <form style="display:initial" action="/lists/<%= item.listId %>/items/<%= item.id %>/purchase" method="post">
+                 <button type="submit" class="btn btn-warning">
+                   <% if(item.purchased == 0) {%>
+                     Mark as purchased
+                   <% } else if (item.purchased == 1) { %>
+                     Unmark purchase
+                   <% } %>
+                 </button>
+               </form>
+             </div>
            </li>
          <% }) %>
        </ul>
+       <hr>
        <form action="/lists/<%= list.id %>/items/create" method="post">
         <div class="form-group">
           <input type="text" class="form-control" name="name" aria-describedby="nameHelp" placeholder="Enter Item name">
-          <small class="text-muted" id="nameHelp">name must be 2 or more characters in length.</small>
         </div>
         <button type="submit" class="btn btn-primary">Add Item</button>
       </form>

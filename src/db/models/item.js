@@ -8,6 +8,11 @@ module.exports = (sequelize, DataTypes) => {
     listId: {
       type: DataTypes.INTEGER,
       allowNull: false
+    },
+    purchased: {
+      type: DataTypes.INTEGER,
+      allowNull: false,
+      defaultValue: 0
     }
   }, {});
   Item.associate = function(models) {
@@ -17,5 +22,10 @@ module.exports = (sequelize, DataTypes) => {
       onDelete: "CASCADE"
     })
   };
+
+  Item.prototype.hasPurchased = function() {
+    return this.purchased === 1;
+  }
+  
   return Item;
 };

@@ -28,9 +28,11 @@ module.exports = {
 
   show(req, res, next) {
     listQueries.getList(req.params.id, (err, list) => {
+      console.log("LOOK: WE CANNOT SHOR THE LIST");
       if(err || list == null) {
         res.redirect(404, "/");
       } else {
+        console.log("LOOK WE WENT IN SHOW LIST");
         res.render("lists/show", {list});
       }
     });

@@ -42,5 +42,26 @@ module.exports = {
     .catch((err) => {
       callback(err);
     });
+  },
+
+  toggle(req, callback) {
+    return Item.findById(req.params.id)
+    .then((item) => {
+      if(item.purchased == 0) {
+        item.update({
+          purchased: 1
+        })
+        .then(item => {
+          callback(null, item);
+        });
+      } else {
+        item.update({
+          purchased: 0
+        })
+        .then(item => {
+          callback(null, item);
+        });
+      }
+    });
   }
 }

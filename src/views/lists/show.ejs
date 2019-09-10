@@ -7,14 +7,14 @@
     <% include ../static/partials/navbar.ejs %>
 
     <main class="container">
-      <% include ../static/partials/messages.ejs %>
-      <br>
+     <% include ../static/partials/messages.ejs %>
+     <br>
+     <img style="height:20rem;" src="/../images/shoppinggirl1.png" alt="Girl with a shopping bag">
+     <h2 style="margin-top: 4rem; padding-left:-2rem;"><%= list.name %></h2>    
+     <hr>
 
-      <h4><%= list.name %></h4>
-
-      <hr>
-
-     <h1>Items</h1>
+     <div class="item-list">
+     <h4>Items</h4>
        <ul class="list-group">
          <% list.items.forEach((item) => { %>
            <li class="list-group-item">
@@ -54,6 +54,7 @@
         </div>
         <button type="submit" class="btn btn-primary">Add Item</button>
       </form>
+    </div>
 
     </main>
 

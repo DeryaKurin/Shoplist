@@ -6,33 +6,40 @@
   <body>
     <main class="container">
       <% include ../static/partials/navbar.ejs %>
-
-      <h1>Lists</h1>
-
-      <ul class="list-group">
-
-        <% lists.forEach((list) => { %>
-
-          <li class="list-group-item">
-            <a href="/lists/<%= list.id %>"> <%= list.name %> </a>
-            <form style="display:initial" action="/lists/<%= list.id %>/destroy" method="post">
-              <button type="submit" class="btn btn-danger">Delete</button>
-            </form>
-          </li>
-        <% }) %>
-      </ul>
-
-      <h5>New List</h5>
-
-      <form action="/lists/create" method="post">
-        <div class="form-group">
-          <input type="text" class="form-control" name="name" aria-describedby="nameHelp" placeholder="Enter a new list name">
-          <small class="text-muted" id="nameHelp">Name must be 2 or more characters in length.</small>
+      <div class="row">
+        <div class="col-sm-4">
+          <img style="height:20rem; margin-top:2rem;" src="/../images/vegetables4.png" alt="Vegetables in a bag">
         </div>
+        <div class="col-sm-8">
+          <h1 style="margin-top:2rem;">Lists</h1>
 
-        <button type="submit" class="btn btn-primary">Submit</button>
-      </form>
+          <ul class="list-group">
 
+            <% lists.forEach((list) => { %>
+
+              <li class="list-group-item">
+                <a href="/lists/<%= list.id %>"> <%= list.name %> </a>
+                <form style="display:initial" action="/lists/<%= list.id %>/destroy" method="post">
+                  <button type="submit" class="btn btn-danger">Delete</button>
+                </form>
+              </li>
+            <% }) %>
+          </ul>
+          <br>
+
+          <h5>New List</h5>
+
+          <form action="/lists/create" method="post">
+            <div class="form-group">
+              <input type="text" class="form-control" name="name" aria-describedby="nameHelp" placeholder="Enter a new list name">
+              <small class="text-muted" id="nameHelp">Name must be 2 or more characters in length.</small>
+            </div>
+
+            <button type="submit" class="btn btn-primary">Submit</button>
+          </form>
+
+        </div>
+      </div>
 
     </main>
   </body>

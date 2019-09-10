@@ -13,3 +13,19 @@ body {
 .listGroup li a {
   color: darkgray;
 }
+
+
+header {
+  background-image: url("/../images/grocery1.jpg");
+  background-size: cover;
+  height: 30rem;
+  color: #f2a602;
+}
+
+.banner {
+  margin-top: 4rem;
+}
+
+.show-banner {
+  
+}
